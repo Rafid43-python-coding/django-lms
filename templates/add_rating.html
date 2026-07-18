@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3>Rate Course</h3>
+                </div>
+
+                <div class="card-body">
+
+                    <h5 class="mb-3">{{ course.title }}</h5>
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label>Rating (1-5)</label>
+                            {{ form.rating }}
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Review</label>
+                            {{ form.review }}
+                        </div>
+
+                        <button type="submit" class="btn btn-success">
+                            Submit Review
+                        </button>
+
+                        <a href="{% url 'course_detail' course.id %}" class="btn btn-secondary">
+                            Cancel
+                        </a>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

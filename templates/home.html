@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="p-5 mb-4 bg-primary text-white rounded-3 shadow">
+    <div class="container-fluid py-5">
+        <h1 class="display-4">🎓 Learning Management System</h1>
+        <p class="lead">
+            Learn Python, Django, Web Development and many more courses.
+        </p>
+
+        <a href="{% url 'course' %}" class="btn btn-light btn-lg">
+            Explore Courses
+        </a>
+    </div>
+</div>
+
+<div class="row text-center">
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow h-100">
+            <div class="card-body">
+                <h1>📚</h1>
+                <h4>Quality Courses</h4>
+                <p>Learn from well-structured programming courses.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow h-100">
+            <div class="card-body">
+                <h1>🏆</h1>
+                <h4>Certificates</h4>
+                <p>Download certificates after completing your courses.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card shadow h-100">
+            <div class="card-body">
+                <h1>💻</h1>
+                <h4>Learn Anywhere</h4>
+                <p>Access your courses anytime and from any device.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

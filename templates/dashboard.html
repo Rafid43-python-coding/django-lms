@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>📚 Student Dashboard</h2>
+        <a href="{% url 'home' %}" class="btn btn-secondary">
+            ← Back to Home
+        </a>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow border-0">
+                <div class="card-body text-center">
+                    <h1>📖</h1>
+                    <h5>Total Courses</h5>
+                    <h3>{{ total_courses }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow border-0">
+                <div class="card-body text-center">
+                    <h1>✅</h1>
+                    <h5>Enrolled Courses</h5>
+                    <h3>{{ enrolled_courses }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow border-0">
+                <div class="card-body text-center">
+                    <h1>⭐</h1>
+                    <h5>Reviews Given</h5>
+                    <h3>{{ total_ratings }}</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow mt-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">My Enrolled Courses</h5>
+        </div>
+
+        <div class="card-body">
+
+            {% if enrollments %}
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Instructor</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for enrollment in enrollments %}
+                        <tr>
+                            <td>{{ enrollment.course.title }}</td>
+                            <td>{{ enrollment.course.instructor }}</td>
+                            <td>
+                                <span class="badge bg-success">Enrolled</span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+            {% else %}
+                <div class="alert alert-info">
+                    You have not enrolled in any courses yet.
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
